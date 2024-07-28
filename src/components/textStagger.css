@@ -1,0 +1,14 @@
+.word_container {
+  display: flex;
+  cursor: default;
+  /* mostrar border y comentar overflow para test */
+  /* border: 1px solid #c01717; */
+  overflow: hidden;
+}
+
+.text_rolling {
+  display: flex;
+  flex-direction: column;
+  white-space: pre;
+  transition: transform 0.3s ease-in-out;
+}

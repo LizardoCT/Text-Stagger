@@ -1,9 +1,14 @@
-import Hero from "./components/Hero"
+import TextStagger from './components/TextStagger'
 
 function App() {
   return (
-    <>  
-      <Hero />
+    <>
+      <div className='words_section'>
+        <TextStagger text='hello' />
+        <TextStagger text='world' />
+        <TextStagger text='frontend' />
+        <TextStagger text='developer' />
+      </div>
     </>
   )
 }

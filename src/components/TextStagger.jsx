@@ -1,28 +1,20 @@
-/* eslint-disable react/prop-types */
 import { useEffect, useRef, useCallback } from 'react'
+import PropTypes from 'prop-types'
 import './textStagger.css'
 
-const TextStagger = ({ text, size }) => {
+const TextStagger = ({ text }) => {
   const containerRef = useRef(null)
   const textRollingRefs = useRef([])
 
-  // valores a modificar dependiendo del font-size
-  const translateYValue = `-${size}px` // valor de desplazamiento para la animación
-  const height = `${size}px` // altura del contenedor de cada palabra
-  const lineHeight = `${size}px` // altura de cada linea
-
-  const handleMouseEvent = useCallback(
-    (isMouseOver, rollingElements) => {
-      rollingElements.forEach((element, index) => {
-        setTimeout(() => {
-          element.style.transform = isMouseOver
-            ? `translateY(${translateYValue})`
-            : 'translateY(0)'
-        }, index * 50) // 50ms = tiempo de animacion entre cada letra
-      })
-    },
-    [translateYValue]
-  )
+  const handleMouseEvent = useCallback((isMouseOver, rollingElements) => {
+    rollingElements.forEach((element, index) => {
+      setTimeout(() => {
+        element.style.transform = isMouseOver
+          ? 'translateY(-65px)' // altura negativa de animacion de cada texto
+          : 'translateY(0)'
+      }, index * 50) // 50ms = tiempo entre cada animacion
+    })
+  }, [])
 
   useEffect(() => {
     const container = containerRef.current
@@ -46,7 +38,6 @@ const TextStagger = ({ text, size }) => {
         <div
           key={index}
           className='text_rolling'
-          style={{ height, lineHeight }}
           ref={(el) => (textRollingRefs.current[index] = el)}
         >
           <span>{letter}</span>
@@ -55,6 +46,10 @@ const TextStagger = ({ text, size }) => {
       ))}
     </div>
   )
+}
+
+TextStagger.propTypes = {
+  text: PropTypes.string.isRequired,
 }
 
 export default TextStagger

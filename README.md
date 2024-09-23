@@ -38,4 +38,5 @@ Start the server
 
 ## Screenshots
 
+![tiny](https://github.com/user-attachments/assets/eafc9dea-eed4-4ac5-8892-50f913352bdc)
 

@@ -1,7 +1,7 @@
 .word_container {
   display: flex;
   cursor: default;
-  /* mostrar border y comentar overflow para test */
+  /* show border and commnt overflow for test */
   /* border: 1px solid #c01717; */
   overflow: hidden;
 }

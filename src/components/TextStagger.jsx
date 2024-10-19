@@ -6,10 +6,10 @@ const TextStagger = ({ text, size }) => {
   const containerRef = useRef(null)
   const textRollingRefs = useRef([])
 
-  // valores a modificar dependiendo del font-size
-  const translateYValue = `-${size}px` // valor de desplazamiento para la animación
-  const height = `${size}px` // altura del contenedor de cada palabra
-  const lineHeight = `${size}px` // altura de cada linea
+  // values to modify depending on the font-size
+  const translateYValue = `-${size}px` // offset value for animation
+  const height = `${size}px` // height of each word's container
+  const lineHeight = `${size}px` // height of each line
 
   const handleMouseEvent = useCallback(
     (isMouseOver, rollingElements) => {
@@ -18,7 +18,7 @@ const TextStagger = ({ text, size }) => {
           element.style.transform = isMouseOver
             ? `translateY(${translateYValue})`
             : 'translateY(0)'
-        }, index * 50) // 50ms = tiempo de animacion entre cada letra
+        }, index * 50) // 50ms = animation time between each letter
       })
     },
     [translateYValue]
